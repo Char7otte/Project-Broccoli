@@ -11,7 +11,7 @@ public class NewEnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (instance.maximum_enemy_count > 0) SpawnEnemyTimer();
+        if (NewGameManager.instance.maximum_enemy_count > 0) SpawnEnemyTimer();
     }
 
     private void SpawnEnemyTimer()
@@ -25,6 +25,7 @@ public class NewEnemySpawner : MonoBehaviour
         Instantiate(EnemyPrefab, transform.position, Quaternion.identity, gameObject.transform);
         timer = 0;
 
-        instance.maximum_enemy_count--;
+        NewGameManager.instance.maximum_enemy_count--;
+        print(NewGameManager.instance.maximum_enemy_count);
     }
 }
