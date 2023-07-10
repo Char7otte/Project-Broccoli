@@ -27,7 +27,7 @@ public class HealthPickUp : MonoBehaviour {
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag.Equals("Player")) {
-            collider.gameObject.GetComponent<PlayerScript>().AddHealth(HealthToRegen, PickUpAudioClip);
+            // collider.gameObject.GetComponent<PlayerScript>().AddHealth(HealthToRegen, PickUpAudioClip);
 
             Destroy(gameObject);
         }

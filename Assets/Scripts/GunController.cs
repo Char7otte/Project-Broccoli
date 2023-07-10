@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MonoBehaviour
+public class GunController : MonoBehaviour
 {
     [Tooltip("Shooting rate of the player")]
     public float ShootingRate;
@@ -13,14 +13,14 @@ public class PlayerScript : MonoBehaviour
     [Tooltip("Damage speed with contact with enemy")]
     public int DamageRate;
 
-    [Tooltip("Starting health of the enemy")]
-    public int HealthPoint;
+    // [Tooltip("Starting health of the enemy")]
+    // public int HealthPoint;
 
     [Tooltip("Starting ammo of the enemy")]
-    public int AmmoCount;
+    public int ammoCount;
 
-    [Tooltip("Shooting sound effect")]
-    public AudioClip ShootingAudioClip;
+    //[Tooltip("Shooting sound effect")]
+    //public AudioClip ShootingAudioClip;
 
     // Reference to muzzle flash //
     public GameObject MuzzleFlash;
@@ -29,7 +29,8 @@ public class PlayerScript : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private bool canShoot;
     private bool canDamage;
-    private AudioSource audioSource;
+    //private AudioSource audioSource;
+    private AudioManagerComponent audioManagerComponent;
     private GameObject camera = null;
     
 
@@ -37,15 +38,16 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
+        audioManagerComponent = GetComponent<AudioManagerComponent>();
 
         canShoot = true;
         canDamage = true;
-        audioSource.clip = ShootingAudioClip;
+        //audioSource.clip = ShootingAudioClip;
         camera = GameObject.FindGameObjectWithTag("MainCamera");
 
-        GameManager.Instance.UpdateAmmo(AmmoCount);
-        GameManager.Instance.UpdateHealth(HealthPoint);
+        GameManager.Instance.UpdateAmmo(ammoCount);
+        //GameManager.Instance.UpdateHealth(HealthPoint);
     }
 
     // Update is called once per frame
@@ -59,7 +61,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetMouseButtonDown(0) && canShoot && AmmoCount > 0)
+        if (Input.GetMouseButton(0) && canShoot && ammoCount > 0)
         {
             // Play muzzle flash //
             StartCoroutine(PlayMuzzleFlash(0.05f));
@@ -88,9 +90,10 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        audioSource.PlayOneShot(ShootingAudioClip);
+        //audioSource.PlayOneShot(ShootingAudioClip);
+        audioManagerComponent.Play("shoot");
 
-        GameManager.Instance.UpdateAmmo(--AmmoCount);
+        GameManager.Instance.UpdateAmmo(--ammoCount);
 
         canShoot = false;
         //wait for some time
@@ -99,31 +102,31 @@ public class PlayerScript : MonoBehaviour
         canShoot = true;
     }
 
-    private void OnTriggerStay(Collider collision)
-    {
-        if (collision.gameObject.tag.Equals("Enemy") && canDamage)
-        {
-            StartCoroutine(GetDamage(collision));
-        }
-    }
+    // private void OnTriggerStay(Collider collision)
+    // {
+    //     if (collision.gameObject.tag.Equals("Enemy") && canDamage)
+    //     {
+    //         StartCoroutine(GetDamage(collision));
+    //     }
+    // }
 
-    private IEnumerator GetDamage(Collider collision)
-    {
-        EnemyScript enemyScript = collision.gameObject.GetComponent<EnemyScript>();
-        HealthPoint -= enemyScript.ContactDamage;
-        GameManager.Instance.UpdateHealth(HealthPoint);
+    // private IEnumerator GetDamage(Collider collision)
+    // {
+    //     EnemyScript enemyScript = collision.gameObject.GetComponent<EnemyScript>();
+    //     HealthPoint -= enemyScript.ContactDamage;
+    //     GameManager.Instance.UpdateHealth(HealthPoint);
 
-        if (HealthPoint <= 0)
-        {
-            Dead();
-        }
+    //     if (HealthPoint <= 0)
+    //     {
+    //         Dead();
+    //     }
 
-        canDamage = false;
-        //wait for some time
-        yield return new WaitForSeconds(DamageRate);
+    //     canDamage = false;
+    //     //wait for some time
+    //     yield return new WaitForSeconds(DamageRate);
 
-        canDamage = true;
-    }
+    //     canDamage = true;
+    // }
 
     private void Dead()
     {
@@ -132,17 +135,19 @@ public class PlayerScript : MonoBehaviour
 
     public void AddAmmo(int ammo, AudioClip audioClip)
     {
-        AmmoCount += ammo;
-        GameManager.Instance.UpdateAmmo(AmmoCount);
+        ammoCount += ammo;
+        GameManager.Instance.UpdateAmmo(ammoCount);
 
-        audioSource.PlayOneShot(audioClip);
+        //audioSource.PlayOneShot(audioClip);
+        AudioManagerMaster.Instance.Play("Ammo Pickup");
     }
 
-    public void AddHealth(int health, AudioClip audioClip)
-    {
-        HealthPoint += health;
-        GameManager.Instance.UpdateHealth(HealthPoint);
+    // public void AddHealth(int health, AudioClip audioClip)
+    // {
+    //     HealthPoint += health;
+    //     GameManager.Instance.UpdateHealth(HealthPoint);
 
-        audioSource.PlayOneShot(audioClip);
-    }
+    //     //audioSource.PlayOneShot(audioClip);
+    //     AudioManagerMaster.Instance.Play("Health Pickup");
+    // }
 }

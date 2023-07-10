@@ -27,7 +27,7 @@ public class AmmoPickUp : MonoBehaviour {
     {
         if (collider.gameObject.tag.Equals("Player"))
         {
-            collider.gameObject.GetComponent<PlayerScript>().AddAmmo(AmmoToRegen, PickUpAudioClip);
+            //collider.gameObject.GetComponent<PlayerScript>().AddAmmo(AmmoToRegen, PickUpAudioClip);
 
             Destroy(gameObject);
         }
