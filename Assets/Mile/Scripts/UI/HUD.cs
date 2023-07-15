@@ -23,10 +23,10 @@ public class HUD : MonoBehaviour
         healthbarImage.fillAmount = currentHealth / maxHealth;
         healthText.SetText("Health: " + currentHealth);
 
-        var gunComponent = GunSelector.currentWeapon.GetComponent<GunComponent>();
-        var currentAmmo = gunComponent.remainingBulletsInMagazine;
-        var maxMagazineSize = gunComponent.maxMagazineSize;
-        ammoText.SetText(currentAmmo + " / " + maxMagazineSize);
+        // var gunComponent = GunSelector.currentWeapon.GetComponent<GunComponent>();
+        // var currentAmmo = gunComponent.remainingBulletsInMagazine;
+        // var maxMagazineSize = gunComponent.maxMagazineSize;
+        // ammoText.SetText(currentAmmo + " / " + maxMagazineSize);
 
         // var score = 
         // scoreText.SetText("Score: " + score);

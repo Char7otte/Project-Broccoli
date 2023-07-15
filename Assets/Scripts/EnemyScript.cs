@@ -24,7 +24,7 @@ public class EnemyScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        playerTransform = GameObject.Find("Player").transform;
+        playerTransform = GameObject.Find("PlayerCharacter").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 	
@@ -34,6 +34,8 @@ public class EnemyScript : MonoBehaviour {
         {
             navMeshAgent.SetDestination(playerTransform.position);
         }
+
+        //navMeshAgent.SetDestination(playerTransform.position);
     }
 
     

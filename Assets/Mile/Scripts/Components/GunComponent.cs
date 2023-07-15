@@ -68,7 +68,7 @@ public class GunComponent : MonoBehaviour
                 hit.collider.gameObject.GetComponent<HealthComponent>().DealDamage(damage);
             }
         }
-        audioManagerComponent.Play("shooting");
+        audioManagerComponent.Play("shoot");
 
         
         remainingBulletsInMagazine--;
