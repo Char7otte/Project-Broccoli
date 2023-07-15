@@ -86,7 +86,7 @@ public class GunController : MonoBehaviour
         {
             if (hit.collider.gameObject.tag.Equals("Enemy"))
             {
-                hit.collider.gameObject.GetComponent<EnemyScript>().OnHit(ShootingDamage);
+                //hit.collider.gameObject.GetComponent<EnemyScript>().OnHit(ShootingDamage);
             }
         }
 
