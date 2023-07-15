@@ -43,6 +43,7 @@ public class AudioManagerComponent : MonoBehaviour
             s.audioSource.clip = s.audioClip;
             s.audioSource.loop = s.isLooping;
             s.audioSource.volume = s.volume;
+            s.audioSource.playOnAwake = s.playOnAwake;
 
         switch (s.audioType) {
             case Sound.AudioType.music:

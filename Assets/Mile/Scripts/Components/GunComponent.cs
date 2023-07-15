@@ -57,6 +57,7 @@ public class GunComponent : MonoBehaviour
     private void Shoot() {
         // animator.SetBool("is_shooting", true);
         readyToShoot = false;
+        audioManagerComponent.Play("shoot");
 
         // Instantiate(bulletPrefab, bulletSpawnPoint.position, transform.rotation, bulletsGroup);
         RaycastHit hit;
@@ -68,9 +69,7 @@ public class GunComponent : MonoBehaviour
                 hit.collider.gameObject.GetComponent<HealthComponent>().DealDamage(damage);
             }
         }
-        audioManagerComponent.Play("shoot");
-
-        
+    
         remainingBulletsInMagazine--;
         Invoke("ResetShot", timeBetweenShots);
     }
