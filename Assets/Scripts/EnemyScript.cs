@@ -38,20 +38,26 @@ public class EnemyScript : MonoBehaviour {
         //navMeshAgent.SetDestination(playerTransform.position);
     }
 
-    
-
-    public void OnHit(int damage)
-    {
-        HealthPoint -= damage;
-
-        if (HealthPoint <= 0)
-        {
-            Dead();
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Player") {
+            
         }
     }
 
-    private void Dead() {
-        GameManager.Instance.UpdateScore(ScoreReward, DeathAudioClip);
-        Destroy(gameObject);
-    }
+    
+
+    // public void OnHit(int damage)
+    // {
+    //     HealthPoint -= damage;
+
+    //     if (HealthPoint <= 0)
+    //     {
+    //         Dead();
+    //     }
+    // }
+
+    // private void Dead() {
+    //     GameManager.Instance.UpdateScore(ScoreReward, DeathAudioClip);
+    //     Destroy(gameObject);
+    // }
 }

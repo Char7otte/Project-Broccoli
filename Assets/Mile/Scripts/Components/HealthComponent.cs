@@ -11,6 +11,12 @@ public class HealthComponent : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    private void Update() {
+        if (currentHealth <= 0) {
+            Destroy(gameObject);
+        }
+    }
+
     public void DealDamage(float damageAmount) {
         currentHealth -= damageAmount;
         currentHealth = Mathf.Max(currentHealth, 0.0f);
