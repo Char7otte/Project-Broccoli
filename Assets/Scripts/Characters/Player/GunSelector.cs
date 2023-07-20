@@ -7,7 +7,7 @@ public class GunSelector : MonoBehaviour
     public static GunSelector Instance;
     public static GameObject currentWeapon = null;
 
-    [Header("Weapons to switch to")]
+    [Header("Weapons")]
     public GameObject[] weapons = default;
 
     [Header("Debugging")]
