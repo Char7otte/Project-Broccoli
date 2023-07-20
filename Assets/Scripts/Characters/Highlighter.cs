@@ -10,17 +10,19 @@ public class Highlighter : MonoBehaviour
     private RaycastHit raycastHit;
     private int interactableLayerInt;
 
+    [SerializeField]private GameObject interactPopUp;
+
     private void Start() {
         interactableLayerInt = LayerMask.NameToLayer("Interactable");
     }
 
-    void Update()
+    private void Update()
     {
-        // Highlight
         if (highlight != null)
         {
             highlight.gameObject.GetComponent<Outline>().enabled = false;
             highlight = null;
+            DisableInteractPopUp();
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit)) //Make sure you have EventSystem in the hierarchy before using EventSystem
@@ -32,6 +34,8 @@ public class Highlighter : MonoBehaviour
                     Outline outline = highlight.gameObject.AddComponent<Outline>();
                 } 
                 highlight.gameObject.GetComponent<Outline>().enabled = true;
+
+                EnableInteractPopUp();
             }
             else
             {
@@ -40,4 +44,11 @@ public class Highlighter : MonoBehaviour
         }
     }
 
+    private void EnableInteractPopUp() {
+        interactPopUp.SetActive(true);
+    }
+
+    private void DisableInteractPopUp() {
+        interactPopUp.SetActive(false);
+    }
 }
