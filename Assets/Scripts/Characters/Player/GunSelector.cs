@@ -1,17 +1,22 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GunSelector : MonoBehaviour
 {
-    [SerializeField]private GameObject[] weapons = default;
-    [Tooltip("Choose according to the alpha keys. It will subtract one when the script is run so it works correctly with Array elements.")]
-    [SerializeField]private int gunIndex; //Debugging
-
+    public static GunSelector Instance;
     public static GameObject currentWeapon = null;
 
+    [Header("Weapons to switch to")]
+    public GameObject[] weapons = default;
+
+    [Header("Debugging")]
+    [SerializeField]private int gunIndex = default;
+
     private void Awake() {
-        gunIndex--;
+        if (Instance != null && Instance != this) Destroy(this);
+        else Instance = this;
+        
         currentWeapon = weapons[gunIndex];
         SwitchToWeaponSlot(gunIndex);
     }
@@ -26,7 +31,12 @@ public class GunSelector : MonoBehaviour
     }
 
     public void SwitchToWeaponSlot(int slotIndex) {
+        if (!weapons[slotIndex].GetComponent<GunComponent>().pickedUp) {
+            print(weapons[slotIndex].transform.name + " hasn't been picked up.");
+            return;
+            }
         if (slotIndex < 0 || slotIndex >= weapons.Length) return;
+
         disableAllWeapons();
         enableWeapon(slotIndex);
     }
