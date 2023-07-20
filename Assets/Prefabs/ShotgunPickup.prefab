@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 651754197013998623}
   - component: {fileID: 651754197013998622}
   - component: {fileID: 651754197013998593}
+  - component: {fileID: 5717130494114664280}
   m_Layer: 9
   m_Name: ShotgunPickup
   m_TagString: Shotgun
@@ -62,6 +63,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1507405, y: 0.5035447, z: 2.8110642}
   m_Center: {x: 0, y: 0, z: 0.60155416}
+--- !u!114 &5717130494114664280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651754197013998592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f479701dcf9d2f4d95dda9483305d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weightValue: 5
 --- !u!1001 &651754198240369463
 PrefabInstance:
   m_ObjectHideFlags: 0
