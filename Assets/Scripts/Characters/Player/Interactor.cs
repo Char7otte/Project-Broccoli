@@ -30,6 +30,9 @@ public class Interactor : MonoBehaviour
                         var gunComponent = GunSelector.currentWeapon.GetComponent<GunComponent>();
                         gunComponent.addAmmo(gunComponent.maxMagazineSize);
                         break;
+                    case "Shotgun":
+                        print("Shotgun picked up");
+                        break;
                     default:
                         break;
                 }
