@@ -35,7 +35,6 @@ public class Highlighter : MonoBehaviour
                     Outline outline = highlight.gameObject.AddComponent<Outline>();
                 } 
                 highlight.gameObject.GetComponent<Outline>().enabled = true;
-
                 EnableInteractPopUp();
             }
             else
