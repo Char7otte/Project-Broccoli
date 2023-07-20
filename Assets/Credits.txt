@@ -1,0 +1,9 @@
+Assets:
+https://assetstore.unity.com/packages/3d/environments/fantasy/church-3d-68143
+https://assetstore.unity.com/packages/3d/props/horror-starter-pack-free-178413
+https://assetstore.unity.com/packages/3d/vegetation/trees/lowpoly-trees-cartoon-free-251403
+https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488
+https://assetstore.unity.com/packages/3d/props/guns/sample-low-poly-guns-pack-207957
+https://assetstore.unity.com/packages/2d/textures-materials/sky/urban-night-sky-134468
+
+Audio:
