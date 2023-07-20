@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: 5c991873bb16996489a69492afd3962f
 ModelImporter:
-  serializedVersion: 27
+  serializedVersion: 19301
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -31,7 +31,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -43,6 +43,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -86,6 +87,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
