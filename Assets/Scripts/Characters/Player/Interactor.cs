@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactor : MonoBehaviour
 {
     [Header("Raycasting")]
-    [SerializeField]private Transform interactorSource = default;
+    [SerializeField]private Transform cameraPosition = default;
     [SerializeField]private float interactRange = default;
     private LayerMask interactableLayer;
 
@@ -20,7 +20,7 @@ public class Interactor : MonoBehaviour
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
-            var ray = new Ray(interactorSource.position, interactorSource.forward);
+            var ray = new Ray(cameraPosition.position, cameraPosition.forward);
             if (Physics.Raycast(ray, out var hit, interactRange , interactableLayer)) {
 
                 switch(hit.collider.gameObject.tag) {

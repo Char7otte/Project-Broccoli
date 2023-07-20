@@ -10,6 +10,7 @@ public class Highlighter : MonoBehaviour
     private RaycastHit raycastHit;
     private int interactableLayerInt;
 
+    [SerializeField]private float raycastHitDistance = default;
     [SerializeField]private GameObject interactPopUp = default;
 
     private void Start() {
@@ -25,7 +26,7 @@ public class Highlighter : MonoBehaviour
             DisableInteractPopUp();
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit)) //Make sure you have EventSystem in the hierarchy before using EventSystem
+        if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit, raycastHitDistance)) //Make sure you have EventSystem in the hierarchy before using EventSystem
         {
             highlight = raycastHit.transform;
             if (highlight.transform.gameObject.layer == interactableLayerInt && highlight != selection)
