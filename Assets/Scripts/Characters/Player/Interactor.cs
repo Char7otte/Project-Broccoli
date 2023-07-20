@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
+    [Header("Raycasting")]
     [SerializeField]private Transform interactorSource = default;
     [SerializeField]private float interactRange = default;
+    private LayerMask interactableLayer;
 
+    [Header("Syringe & Healing")]
     [SerializeField]private float syringeHealAmount = default;
     private HealthComponent healthComponent;
-
-    private LayerMask interactableLayer;
 
     private void Start() {
         healthComponent = GetComponent<HealthComponent>();
@@ -30,12 +31,22 @@ public class Interactor : MonoBehaviour
                         var gunComponent = GunSelector.currentWeapon.GetComponent<GunComponent>();
                         gunComponent.addAmmo(gunComponent.maxMagazineSize);
                         break;
+                    case "Shotgun":
+                        WeaponPickUp(1);
+                        break;
                     default:
                         break;
                 }
                 Destroy(hit.transform.gameObject);
             }
         }
+    }
+
+    private void WeaponPickUp(int slotIndex) {
+        var gunSelector = GunSelector.Instance;
+        print(gunSelector.weapons[slotIndex].transform.name + " picked up.");
+        gunSelector.weapons[slotIndex].GetComponent<GunComponent>().pickedUp = true;
+        gunSelector.SwitchToWeaponSlot(slotIndex);
     }
 }
 

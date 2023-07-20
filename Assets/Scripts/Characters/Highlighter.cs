@@ -6,11 +6,11 @@ using UnityEngine.EventSystems;
 public class Highlighter : MonoBehaviour
 {
     private Transform highlight;
-    private Transform selection;
+    private Transform selection = default;
     private RaycastHit raycastHit;
     private int interactableLayerInt;
 
-    [SerializeField]private GameObject interactPopUp;
+    [SerializeField]private GameObject interactPopUp = default;
 
     private void Start() {
         interactableLayerInt = LayerMask.NameToLayer("Interactable");
@@ -40,6 +40,7 @@ public class Highlighter : MonoBehaviour
             else
             {
                 highlight = null;
+                DisableInteractPopUp();
             }
         }
     }

@@ -13,6 +13,7 @@ public class GunComponent : MonoBehaviour
     [SerializeField]private float reloadTime = default;
 
     [Header("States")]
+    public bool pickedUp = true;
     private bool shooting = false;
     private bool readyToShoot = true;
     private bool reloading = false;
