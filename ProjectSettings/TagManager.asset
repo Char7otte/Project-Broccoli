@@ -8,6 +8,10 @@ TagManager:
   - Syringe
   - Ammo
   - Shotgun
+  - Key
+  - Key Spawn Location
+  - Door
+  - Enemy Spawner
   layers:
   - Default
   - TransparentFX

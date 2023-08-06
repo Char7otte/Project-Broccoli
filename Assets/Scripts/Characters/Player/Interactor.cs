@@ -34,6 +34,10 @@ public class Interactor : MonoBehaviour
                     case "Shotgun":
                         WeaponPickUp(1);
                         break;
+                    case "Key":
+                        print("Key picked up");
+                        GameManager.Instance.keyPickedUp = true;
+                        break;
                     default:
                         break;
                 }
