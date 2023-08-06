@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5498345303565703736}
   - component: {fileID: 5498345303565703719}
+  - component: {fileID: 9026666682470669012}
   m_Layer: 0
   m_Name: IntertactableSpawner
   m_TagString: Untagged
@@ -47,3 +48,15 @@ MonoBehaviour:
   - {fileID: 651754197013998592, guid: 47e1a8ab662d2c64fa62b3f2164078f9, type: 3}
   - {fileID: 6764330924499922824, guid: 1dc6656d38f5d9f47aba51eb8552b23d, type: 3}
   - {fileID: 3270601578641972757, guid: a46dc9a245861c44f876f39a3c3fef51, type: 3}
+--- !u!114 &9026666682470669012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5498345303565703737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd62d324e949324593896b71ef5e0ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

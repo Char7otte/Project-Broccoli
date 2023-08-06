@@ -7,142 +7,156 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
 
-    [Header("Game variables")]
-    [Tooltip("Time in seconds")]
-    public float RoundTime;
+    // [Header("Game variables")]
+    // [Tooltip("Time in seconds")]
+    // public float RoundTime;
 
-    [Header("Game audioClips")]
-    public AudioClip BackgroundMusic;
-    public AudioClip GameWinSound;
-    public AudioClip GameLoseSound;
+    // [Header("Game audioClips")]
+    // public AudioClip BackgroundMusic;
+    // public AudioClip GameWinSound;
+    // public AudioClip GameLoseSound;
 
-    [Header("Text boxes references")]
-    public Text ScoreTextbox;
-    public string ScoreTextPrefix;
+    // [Header("Text boxes references")]
+    // public Text ScoreTextbox;
+    // public string ScoreTextPrefix;
 
-    public Text AmmoTextbox;
-    public string AmmoTextPrefix;
+    // public Text AmmoTextbox;
+    // public string AmmoTextPrefix;
 
-    public Text HealthTextbox;
-    public string HealthTextPrefix;
+    // public Text HealthTextbox;
+    // public string HealthTextPrefix;
 
-    public Text TimeLeftTextbox;
-    public string TimeLeftTextPrefix;
+    // public Text TimeLeftTextbox;
+    // public string TimeLeftTextPrefix;
 
-    public GameObject GameOverUI;
+    // public GameObject GameOverUI;
 
 
-    public string SceneName;
-    [HideInInspector]
-    public bool isGameOver;
+    // public string SceneName;
+    // [HideInInspector]
+    // public bool isGameOver;
     
-    private int score;
-    private AudioSource audioSource;
+    // private int score;
+    // private AudioSource audioSource;
 
-    // Use this for initialization
-    void Awake () {
-        if (Instance == null) {
-            Instance = this;
-        }
+    // // Use this for initialization
+    // void Awake () {
+    //     if (Instance == null) {
+    //         Instance = this;
+    //     }
 
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = BackgroundMusic;
-        audioSource.Play();
+    //     audioSource = GetComponent<AudioSource>();
+    //     audioSource.clip = BackgroundMusic;
+    //     audioSource.Play();
 
-        GameOverUI.SetActive(false);
-    }
+    //     GameOverUI.SetActive(false);
+    // }
 	
-	// Update is called once per frame
-	void Update () {
-        if (isGameOver)
-            return;
+	// // Update is called once per frame
+	// void Update () {
+    //     if (isGameOver)
+    //         return;
 
-        UpdateTimeLeft();
+    //     UpdateTimeLeft();
 
-        if (Input.GetKeyDown(KeyCode.F1)) {
-            SetGameOver(true);
-        }
-    }
+    //     if (Input.GetKeyDown(KeyCode.F1)) {
+    //         SetGameOver(true);
+    //     }
+    // }
 
-    public void UpdateScore(int _score, AudioClip audioClip) {
-        score += _score;
-        ScoreTextbox.text = ScoreTextPrefix + score;
+    // public void UpdateScore(int _score, AudioClip audioClip) {
+    //     score += _score;
+    //     ScoreTextbox.text = ScoreTextPrefix + score;
 
-        audioSource.PlayOneShot(audioClip);
-    }
+    //     audioSource.PlayOneShot(audioClip);
+    // }
 
-    public void UpdateAmmo(int ammo)
-    {
-        AmmoTextbox.text = AmmoTextPrefix + ammo;
-    }
+    // public void UpdateAmmo(int ammo)
+    // {
+    //     AmmoTextbox.text = AmmoTextPrefix + ammo;
+    // }
 
-    public void UpdateHealth(int health)
-    {
-        if (health <= 0 && !isGameOver)
-        {
-            health = 0;
-            SetGameOver(false);
-        }
+    // public void UpdateHealth(int health)
+    // {
+    //     if (health <= 0 && !isGameOver)
+    //     {
+    //         health = 0;
+    //         SetGameOver(false);
+    //     }
 
-        HealthTextbox.text = HealthTextPrefix + health;
-    }
+    //     HealthTextbox.text = HealthTextPrefix + health;
+    // }
 
-    public void UpdateTimeLeft()
-    {
-        if (RoundTime <= 0)
-        {
-            RoundTime = 0;
-            TimeLeftTextbox.text = TimeLeftTextPrefix + "\n00:00:00";
+    // public void UpdateTimeLeft()
+    // {
+    //     if (RoundTime <= 0)
+    //     {
+    //         RoundTime = 0;
+    //         TimeLeftTextbox.text = TimeLeftTextPrefix + "\n00:00:00";
 
-            SetGameOver(false);
+    //         SetGameOver(false);
 
-            return;
-        }
+    //         return;
+    //     }
 
-        RoundTime -= Time.deltaTime;
+    //     RoundTime -= Time.deltaTime;
 
-        int minutes = (int)RoundTime / 60;
-        int seconds = (int)RoundTime - 60 * minutes;
-        int milliseconds = (int)(100 * (RoundTime - minutes * 60 - seconds));
+    //     int minutes = (int)RoundTime / 60;
+    //     int seconds = (int)RoundTime - 60 * minutes;
+    //     int milliseconds = (int)(100 * (RoundTime - minutes * 60 - seconds));
         
-        TimeLeftTextbox.text = TimeLeftTextPrefix + '\n' + string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
-    }
+    //     TimeLeftTextbox.text = TimeLeftTextPrefix + '\n' + string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+    // }
 
-    public void SetGameOver(bool isWin) {
+    // public void SetGameOver(bool isWin) {
 
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        GameObject.Find("FPSPlayer").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
-        isGameOver = true;
-        GameOverUI.SetActive(true);
+    //     Cursor.visible = true;
+    //     Cursor.lockState = CursorLockMode.None;
+    //     GameObject.Find("FPSPlayer").GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController>().enabled = false;
+    //     isGameOver = true;
+    //     GameOverUI.SetActive(true);
         
-        if (isWin)
-        {
-            audioSource.PlayOneShot(GameWinSound);
-        }
-        else
-        {
-            audioSource.PlayOneShot(GameLoseSound);
-        }
+    //     if (isWin)
+    //     {
+    //         audioSource.PlayOneShot(GameWinSound);
+    //     }
+    //     else
+    //     {
+    //         audioSource.PlayOneShot(GameLoseSound);
+    //     }
+    // }
+
+    // public void ResetGame() {
+    //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    // }
+
+    // public int GetScore()
+    // {
+    //     return score;
+    // }
+
+
+    // public void Quit()
+    // {
+    //     Application.Quit();
+    // }
+
+    // public void LoadNextLevel()
+    // {
+    //     SceneManager.LoadScene("L2");
+    // }
+
+    [SerializeField]private GameObject debugLight = default;
+    [SerializeField]private bool enableDebugLight = default;
+
+    public bool keyPickedUp = default;
+
+    private void Awake() {
+        if (Instance != null && Instance != this) Destroy(this);
+        else Instance = this;
     }
 
-    public void ResetGame() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public int GetScore()
-    {
-        return score;
-    }
-
-
-    public void Quit()
-    {
-        Application.Quit();
-    }
-
-    public void LoadNextLevel()
-    {
-        SceneManager.LoadScene("L2");
+    private void Start() {
+        if (enableDebugLight == false) debugLight.SetActive(false);
     }
 }

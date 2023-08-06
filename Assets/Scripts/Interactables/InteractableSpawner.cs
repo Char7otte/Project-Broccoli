@@ -11,9 +11,8 @@ public class InteractableSpawner : MonoBehaviour
         var selectedItem = SelectRandomItem(AddUpWeightOfItems());
         if (!selectedItem) return;
 
-        var randomRotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
-        var parent = GameObject.Find("===PICKUPS===").transform;
-        Instantiate(selectedItem, transform.position, Quaternion.Euler(randomRotation), parent);
+        var itemSpawnerComponent = GetComponent<ItemSpawnerComponent>();
+        itemSpawnerComponent.SpawnItem(selectedItem, transform);
     }
 
     private int AddUpWeightOfItems() {
