@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
@@ -146,9 +147,13 @@ public class GameManager : MonoBehaviour {
     //     SceneManager.LoadScene("L2");
     // }
 
+    [Header("Debugging")]
     [SerializeField]private GameObject debugLight = default;
     [SerializeField]private bool enableDebugLight = default;
 
+    [Header("Audio")]
+
+    [Header("Game Checks")]
     public bool keyPickedUp = default;
 
     private void Awake() {
@@ -158,5 +163,6 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         if (enableDebugLight == false) debugLight.SetActive(false);
+        Invoke("StopBellRinging", 10);
     }
 }
