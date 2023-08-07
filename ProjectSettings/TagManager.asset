@@ -12,6 +12,7 @@ TagManager:
   - Key Spawn Location
   - Door
   - Enemy Spawner
+  - Pistol
   layers:
   - Default
   - TransparentFX
