@@ -13,9 +13,12 @@ public class Interactor : MonoBehaviour
     [SerializeField]private float syringeHealAmount = default;
     private HealthComponent healthComponent;
 
+    private AudioManagerComponent audioManagerComponent;
+
     private void Start() {
         healthComponent = GetComponent<HealthComponent>();
         interactableLayer = LayerMask.GetMask("Interactable");
+        audioManagerComponent = GetComponent<AudioManagerComponent>();
     }
 
     private void Update() {
@@ -26,19 +29,23 @@ public class Interactor : MonoBehaviour
                 switch(hit.collider.gameObject.tag) {
                     case "Syringe":
                         healthComponent.Heal(syringeHealAmount);
+                        audioManagerComponent.Play("heal");
                         break;
                     case "Ammo":
                         var gunComponent = GunSelector.currentWeapon.GetComponent<GunComponent>();
                         gunComponent.addAmmo(gunComponent.maxMagazineSize);
+                        audioManagerComponent.Play("ammo");
                         break;
                     case "Shotgun":
                         WeaponPickUp(1);
+                        audioManagerComponent.Play("shotgun");
                         break;
                     case "Pistol":
                         WeaponPickUp(0);
+                        audioManagerComponent.Play("pistol");
                         break;
                     case "Key":
-                        print("Key picked up");
+                        audioManagerComponent.Play("keys");
                         GameManager.Instance.keyPickedUp = true;
                         PlayerDialogueManager.Instance.KeyFound();
                         break;
