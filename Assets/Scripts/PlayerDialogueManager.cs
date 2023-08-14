@@ -57,7 +57,7 @@ public class PlayerDialogueManager : MonoBehaviour
         ChangeDialogueText("Locked...");
         yield return new WaitForSeconds(textDisplayTime);
         ChangeDialogueText("I'll have to find a key.");
-            yield return new WaitForSeconds(textDisplayTime);
+        yield return new WaitForSeconds(textDisplayTime);
         ChangeDialogueText("");
         PlayerObjectiveManager.Instance.ChangeObjectiveText("Find a key to unlock the church door.");
     }
