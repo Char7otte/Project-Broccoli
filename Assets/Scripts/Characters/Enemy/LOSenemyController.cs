@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour 
+public class LOSenemyController : MonoBehaviour 
 {
     [SerializeField]private float movementSpeed = default;
 
@@ -19,8 +19,10 @@ public class EnemyController : MonoBehaviour
 
     private void Update() {
         transform.LookAt(player);
+
+        CheckIfAbleToSeePlayer();
     }
-	
+
 	private void FixedUpdate () {
         if (player == null) return;
         if (!playerDetected) return;
@@ -28,9 +30,12 @@ public class EnemyController : MonoBehaviour
         navMeshAgent.SetDestination(player.position);
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Player") {
-            playerDetected = true;
+    private void CheckIfAbleToSeePlayer() {
+        var ray = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(ray, out var hitInfo)) {
+            if (hitInfo.collider.tag == "Player") {
+                playerDetected = true;
+            }
         }
     }
 }

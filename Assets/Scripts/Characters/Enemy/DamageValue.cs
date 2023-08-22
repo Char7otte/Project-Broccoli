@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageComponent : MonoBehaviour
+public class DamageValue : MonoBehaviour
 {
     public float damage = 10;
 }

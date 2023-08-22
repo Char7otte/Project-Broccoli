@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeySpawner : MonoBehaviour
+public class SpawnKey : MonoBehaviour
 {
     //[SerializeField]private GameObject[] keySpawnLocations = default;
     [SerializeField]private GameObject keyPrefab = default;
@@ -24,7 +24,7 @@ public class KeySpawner : MonoBehaviour
                 // var parent = GameObject.Find("===PICKUPS===").transform;
                 // Instantiate(keyPrefab, spawnLocation.transform.position, Quaternion.Euler(randomRotation), parent);
 
-                var itemSpawnerComponent = GetComponent<ItemSpawnerComponent>();
+                var itemSpawnerComponent = GetComponent<SpawnItemScript>();
                 itemSpawnerComponent.SpawnItem(keyPrefab, spawnLocation.transform);
                 return;
             }

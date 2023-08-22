@@ -163,6 +163,5 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         if (enableDebugLight == false) debugLight.SetActive(false);
-        Invoke("StopBellRinging", 10);
     }
 }

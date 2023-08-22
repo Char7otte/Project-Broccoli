@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class SpawnEnemyScript : MonoBehaviour
 {
     [SerializeField]private GameObject enemyPrefab = default;
 
     public void SpawnEnemy() {
-        var itemSpawnerComponent = GetComponent<ItemSpawnerComponent>();
-        itemSpawnerComponent.SpawnItem(enemyPrefab, transform);
+        GetComponent<SpawnItemScript>().SpawnItem(enemyPrefab, transform);
     }
 }

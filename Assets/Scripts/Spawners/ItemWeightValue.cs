@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableWeight : MonoBehaviour {
+public class ItemWeightValue : MonoBehaviour {
     public int weightValue = default;
 }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableSpawner : MonoBehaviour
+public class RandomItemSelector : MonoBehaviour
 {
     [Header("Pick ups")]
     [SerializeField]private GameObject[] items = default;
@@ -11,14 +11,14 @@ public class InteractableSpawner : MonoBehaviour
         var selectedItem = SelectRandomItem(AddUpWeightOfItems());
         if (!selectedItem) return;
 
-        var itemSpawnerComponent = GetComponent<ItemSpawnerComponent>();
-        itemSpawnerComponent.SpawnItem(selectedItem, transform);
+        var spawnItemScript = GetComponent<SpawnItemScript>();
+        spawnItemScript.SpawnItem(selectedItem, transform);
     }
 
     private int AddUpWeightOfItems() {
         var _totalWeight = 0;
         foreach (var item in items) {
-            _totalWeight += item.GetComponent<InteractableWeight>().weightValue;
+            _totalWeight += item.GetComponent<ItemWeightValue>().weightValue;
         }
         return _totalWeight;
     }
@@ -28,7 +28,7 @@ public class InteractableSpawner : MonoBehaviour
         var weightSum = 0;
 
         foreach(var item in items) {
-            weightSum += item.GetComponent<InteractableWeight>().weightValue;
+            weightSum += item.GetComponent<ItemWeightValue>().weightValue;
             if (chosenWeight <= weightSum) {
                 return item;
             }

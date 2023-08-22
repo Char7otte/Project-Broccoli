@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {   
     [Header("Player")]
-    [SerializeField]private GameObject player = default;
+    private GameObject player = default;
     private HealthComponent healthComponent;
 
     [Header("Health")]
@@ -18,6 +18,7 @@ public class HUDController : MonoBehaviour
     [SerializeField]private TextMeshProUGUI ammoText = default;
 
     private void Start() {
+        player = GameObject.Find("PlayerCharacter");
         healthComponent = player.GetComponent<HealthComponent>();
     }
 
