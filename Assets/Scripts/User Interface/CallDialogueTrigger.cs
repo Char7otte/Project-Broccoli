@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CallDialogueTrigger : MonoBehaviour
 {
-    [SerializeField]private string methodName = default;
+    [SerializeField]private string[] dialogueArray = default;
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
-            PlayerDialogueManager.Instance.Invoke(methodName, 0);
+            StartCoroutine(PlayerDialogueManager.Instance.RunDialogue(dialogueArray));
         }
     }
 }
