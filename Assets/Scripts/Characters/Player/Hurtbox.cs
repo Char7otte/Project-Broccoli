@@ -29,15 +29,15 @@ public class Hurtbox : MonoBehaviour
 
     private void OnCollisionStay(Collision collision) {
         if (collision.gameObject.tag == "Enemy" && enemyInvincibilityFramesTimer <= 0) {
-            var damageComponent = collision.gameObject.GetComponent<DamageComponent>();
-            EnemyCollision(damageComponent);
+            var damageValue = collision.gameObject.GetComponent<DamageValue>();
+            EnemyCollision(damageValue);
         }
     }
 
-    private void EnemyCollision(DamageComponent enemyDamageComponent) {
+    private void EnemyCollision(DamageValue enemyDamageValue) {
         enemyInvincibilityFramesTimer = enemyInvincibilityFramesDuration;
 
-        var enemyDamage = enemyDamageComponent.damage;
+        var enemyDamage = enemyDamageValue.damage;
         healthComponent.DealDamage(enemyDamage);
     }
 

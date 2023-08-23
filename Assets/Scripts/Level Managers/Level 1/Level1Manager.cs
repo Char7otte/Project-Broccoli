@@ -22,7 +22,7 @@ public class Level1Manager : MonoBehaviour
 
         if (GameManager.Instance.keysFound > 0 && !hasPlayerPickedUpKey) {
             hasPlayerPickedUpKey = true;
-            //PlayerDialogueManager.Instance.KeyFound();
+            PlayerDialogueManager.Instance.KeyFound();
         }
     }
 }
