@@ -25,6 +25,7 @@ public class Interactor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) {
             var ray = new Ray(cameraPosition.position, cameraPosition.forward);
             if (Physics.Raycast(ray, out var hit, interactRange , interactableLayer)) {
+
                 switch(hit.collider.gameObject.tag) {
                     case "Syringe":
                         healthComponent.Heal(syringeHealAmount);
@@ -37,16 +38,15 @@ public class Interactor : MonoBehaviour
                         break;
                     case "Shotgun":
                         WeaponPickUp(1);
-                        audioManagerComponent.Play("shotgun");
+                        audioManagerComponent.Play("shotgun reload");
                         break;
                     case "Pistol":
                         WeaponPickUp(0);
-                        audioManagerComponent.Play("pistol");
+                        audioManagerComponent.Play("pistol reload");
                         break;
                     case "Key":
                         audioManagerComponent.Play("keys");
-                        GameManager.Instance.keyPickedUp = true;
-                        PlayerDialogueManager.Instance.KeyFound();
+                        GameManager.Instance.keysFound += 1;
                         break;
                     default:
                         break;
@@ -59,10 +59,11 @@ public class Interactor : MonoBehaviour
     private void WeaponPickUp(int slotIndex) {
         var gunSelector = GunSelector.Instance;
         var gunComponent = gunSelector.weapons[slotIndex].GetComponent<GunComponent>();
-
-        if (gunComponent.pickedUp) gunComponent.totalAmmo += gunComponent.maxMagazineSize;
+        if (gunComponent.pickedUp) {
+            gunComponent.totalAmmo += gunComponent.maxMagazineSize;
+        }
         else {
-            gunSelector.weapons[slotIndex].GetComponent<GunComponent>().pickedUp = true;
+            gunComponent.pickedUp = true;
             gunSelector.SwitchToWeaponSlot(slotIndex);
         }
     }

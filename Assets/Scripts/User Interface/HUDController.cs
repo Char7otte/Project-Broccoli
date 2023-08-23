@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HUDController : MonoBehaviour
 {   
     [Header("Player")]
-    private GameObject player = default;
+    [SerializeField]private GameObject player = default;
     private HealthComponent healthComponent;
 
     [Header("Health")]
@@ -18,11 +18,12 @@ public class HUDController : MonoBehaviour
     [SerializeField]private TextMeshProUGUI ammoText = default;
 
     private void Start() {
-        player = GameObject.Find("PlayerCharacter");
         healthComponent = player.GetComponent<HealthComponent>();
     }
 
     private void Update() {
+        if (player == null) return;
+        
         var currentHealth = healthComponent.currentHealth;
         var maxHealth = healthComponent.maxHealth;
         healthbarImage.fillAmount = currentHealth / maxHealth;

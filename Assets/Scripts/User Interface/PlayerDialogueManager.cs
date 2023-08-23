@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -9,128 +10,68 @@ public class PlayerDialogueManager : MonoBehaviour
 
     [SerializeField]private TextMeshProUGUI dialogueText = default;
     [SerializeField]private int textDisplayTime = default;
+    public Level1Manager level1Manager = default;
+    public Level2Manager level2Manager = default;
+    [SerializeField]private TextMeshProUGUI objectiveText = default;
 
     private void Awake() {
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
     }
 
-    private void ChangeDialogueText(string text) {
-        dialogueText.text = text;
+    private void Start() {
+        //StartCoroutine(StartOfLevel1());
     }
 
-
-    /// <summary>
-    /// LEVEL 1 DIALOGUE
-    /// </summary>
-
-    public void _StartOfLevel1() {
-        StartCoroutine(StartOfLevel1());
+    private void StartDialogueCoroutine(string[] dialogue, string objective) {
+        StartCoroutine(RunDialogue(dialogue, objective));
     }
 
-    private IEnumerator StartOfLevel1() {
-        ChangeDialogueText("Ow... My head hurts...");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("Where am I? What happened?");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("That bell in the distance... I should check it out.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
+    private IEnumerator RunDialogue(string[] dialogue, string objective) {
+        foreach (string dialogueItem in dialogue) {
+            dialogueText.SetText(dialogueItem);
+            yield return new WaitForSeconds(textDisplayTime);
+        }
+        dialogueText.SetText("");
+        if (!string.IsNullOrEmpty(objective)) objectiveText.SetText(objective);
     }
 
-    public void GunApproach() {
-        StartCoroutine(_GunApproach());
+    public void StartOfLevel1() {
+        var dialogue = new string[] { "Ow... My head hurts...", "Where am I?", " That bell in the distance... I should check it out."};
+        var objective = "Head towards the church.";
+        StartDialogueCoroutine(dialogue, objective);
     }
 
-    private IEnumerator _GunApproach() {
-        ChangeDialogueText("Supplies?");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("Don't mind if I do...");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
+    public void ApproachSupplies() {
+        var dialogue = new string[] { "Supplies?", "Don't mind if I do...",};
+        StartDialogueCoroutine(dialogue, "");
     }
 
-    public void ChurchDoorFirstApproach() {
-        StartCoroutine(_ChurchDoorFirstApproach());
-    }
-
-    private IEnumerator _ChurchDoorFirstApproach() {
-        ChangeDialogueText("Locked...");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("I'll have to find a key.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
-        PlayerObjectiveManager.Instance.ChangeObjectiveText("Find a key to unlock the church door.");
+    public void ApproachChurch() {
+        if (!level1Manager.hasPlayerApproachedChurch && !level1Manager.hasPlayerPickedUpKey) {
+            level1Manager.hasPlayerApproachedChurch = true;
+            var dialogue = new string[] { "Locked...", "I'll have to find a key."};
+            var objective = "Find a key to unlock the church door.";
+            StartDialogueCoroutine(dialogue, objective);
+        }
+        else if (level1Manager.hasPlayerPickedUpKey) {
+            level1Manager.ChurchUnlocked();
+            var dialogue = new string[] { "......?!", "What was that?!"};
+            var objective = "Survive.";
+            StartDialogueCoroutine(dialogue, objective);
+        }
     }
 
     public void KeyFound() {
-        StartCoroutine(_KeyFound());
-    }
-
-    private IEnumerator _KeyFound() {
-        ChangeDialogueText("There we go...");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("Should I explore some more? There might be more resources around.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
-        PlayerObjectiveManager.Instance.ChangeObjectiveText("Unlock the church with the key you found.");
-    }
-
-    public void ChurchDoorUnlocked() {
-        StartCoroutine(_ChurchDoorUnlocked());
-    }
-
-    private IEnumerator _ChurchDoorUnlocked() {
-        AudioManagerMaster.Instance.Play("enemy alert");
-        ChangeDialogueText("...?!");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("Oh no... What was that...?");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
-        PlayerObjectiveManager.Instance.ChangeObjectiveText("Survive.");
-    }
-
-
-
-    /// <summary>
-    /// LEVEL 2
-    /// </summary>
-
-    public void _StartOfLevel2() {
-        StartCoroutine(StartOfLevel2());
-    }
-
-    private IEnumerator StartOfLevel2() {
-        AudioManagerMaster.Instance.Play("door shut");
-        ChangeDialogueText("Phew... That's one problem solved for now.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("Though another problem's taken its place, I suppose.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("...These are all doors.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("That one in the middle has a number lock... It must be important.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
-        PlayerObjectiveManager.Instance.ChangeObjectiveText("Look for a way out.");
-    }
-
-    public void _ApproachFirstNumber() {
-        StartCoroutine(ApproachFirstNumber());
-    }
-
-    private IEnumerator ApproachFirstNumber() {
-        ChangeDialogueText("Why is there a number on the wall...? Strange...");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
-    }
-
-    public void _ApproachSecondNumber() {
-        StartCoroutine(ApproachSecondNumber());
-    }
-
-    private IEnumerator ApproachSecondNumber() {
-        ChangeDialogueText("Another one... Curious.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
+        if (!level1Manager.hasPlayerApproachedChurch) {
+            var dialogue = new string[] { "A key? I wonder what this is for..."};
+            StartDialogueCoroutine(dialogue, "");
+        }
+        else {
+            level1Manager.hasPlayerPickedUpKey = true;
+            var dialogue = new string[] { "There we go.", "But maybe I should look around for more supplies first... "};
+            var objective = "Unlock the church with the key you found.";
+            StartDialogueCoroutine(dialogue, objective);
+        }
     }
 }
