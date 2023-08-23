@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
@@ -153,6 +154,12 @@ public class GameManager : MonoBehaviour {
 
     public int keysFound = default;
 
+    private GameObject player;
+    private HealthComponent playerHealthComponent;
+    private DeathComponent playerDeathComponent;
+    private MouseLook playerMouseLook;
+    public bool playerHasDied = false;
+
     private void Awake() {
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
@@ -160,5 +167,14 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         if (enableDebugLight == false) debugLight.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHealthComponent = player.GetComponent<HealthComponent>();
+        playerDeathComponent = player.GetComponent<DeathComponent>();
+    }
+
+    private void Update() {
+        if (!playerDeathComponent.isAlive) {
+            playerHasDied = true;
+        }
     }
 }
