@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Level1Manager : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class Level1Manager : MonoBehaviour
 
     [SerializeField]private GameObject churchDoor = default;
     [SerializeField]private GameObject player = default;
+    private bool triggered = default;
 
     private void Start() {
         PlayerDialogueManager.Instance.StartOfLevel1();
@@ -30,6 +33,11 @@ public class Level1Manager : MonoBehaviour
         if (GameManager.Instance.keysFound > 0 && !hasPlayerPickedUpKey) {
             hasPlayerPickedUpKey = true;
             PlayerDialogueManager.Instance.KeyFound();
+        }
+
+        if (GameManager.Instance.playerHasDied && !triggered) {
+            Cursor.visible = true;
+		    Screen.lockCursor = false;
         }
     }
 

@@ -38,6 +38,7 @@ public class GunComponent : MonoBehaviour
     }
 
     private void Update() {
+        if (GameManager.Instance.playerHasDied) return;
         MouseInput();
     }
 
