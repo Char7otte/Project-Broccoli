@@ -17,6 +17,7 @@ public class GunSelector : MonoBehaviour
         if (Instance != null && Instance != this) Destroy(this);
         else Instance = this;
         
+        SwitchToWeaponSlot(1);
         currentWeapon = weapons[gunIndex];
         SwitchToWeaponSlot(gunIndex);
     }

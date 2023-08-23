@@ -38,16 +38,15 @@ public class Interactor : MonoBehaviour
                         break;
                     case "Shotgun":
                         WeaponPickUp(1);
-                        audioManagerComponent.Play("shotgun");
+                        audioManagerComponent.Play("shotgun reload");
                         break;
                     case "Pistol":
                         WeaponPickUp(0);
-                        audioManagerComponent.Play("pistol");
+                        audioManagerComponent.Play("pistol reload");
                         break;
                     case "Key":
                         audioManagerComponent.Play("keys");
-                        GameManager.Instance.keyPickedUp = true;
-                        PlayerDialogueManager.Instance.KeyFound();
+                        GameManager.Instance.keysFound += 1;
                         break;
                     default:
                         break;
@@ -59,9 +58,14 @@ public class Interactor : MonoBehaviour
 
     private void WeaponPickUp(int slotIndex) {
         var gunSelector = GunSelector.Instance;
-        print(gunSelector.weapons[slotIndex].transform.name + " picked up.");
-        gunSelector.weapons[slotIndex].GetComponent<GunComponent>().pickedUp = true;
-        gunSelector.SwitchToWeaponSlot(slotIndex);
+        var gunComponent = gunSelector.weapons[slotIndex].GetComponent<GunComponent>();
+        if (gunComponent.pickedUp) {
+            gunComponent.totalAmmo += gunComponent.maxMagazineSize;
+        }
+        else {
+            gunComponent.pickedUp = true;
+            gunSelector.SwitchToWeaponSlot(slotIndex);
+        }
     }
 }
 

@@ -151,10 +151,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]private GameObject debugLight = default;
     [SerializeField]private bool enableDebugLight = default;
 
-    [Header("Audio")]
-
-    [Header("Game Checks")]
-    public bool keyPickedUp = default;
+    public int keysFound = default;
 
     private void Awake() {
         if (Instance != null && Instance != this) Destroy(this);
@@ -163,6 +160,5 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         if (enableDebugLight == false) debugLight.SetActive(false);
-        Invoke("StopBellRinging", 10);
     }
 }

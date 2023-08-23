@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApproachingChurch_LVL1 : MonoBehaviour
+public class Level2Manager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

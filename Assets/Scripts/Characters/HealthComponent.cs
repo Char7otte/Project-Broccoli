@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthComponent : MonoBehaviour
 {
     public float maxHealth;
-    [HideInInspector]public float currentHealth;
+    public float currentHealth;
 
     private void Start() {
         currentHealth = maxHealth;

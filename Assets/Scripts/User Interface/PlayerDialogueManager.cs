@@ -9,6 +9,8 @@ public class PlayerDialogueManager : MonoBehaviour
 
     [SerializeField]private TextMeshProUGUI dialogueText = default;
     [SerializeField]private int textDisplayTime = default;
+    public Level1Manager level1Manager = default;
+    public Level2Manager level2Manager = default;
 
     private void Awake() {
         if (Instance != null && Instance != this) Destroy(this);
@@ -49,17 +51,31 @@ public class PlayerDialogueManager : MonoBehaviour
         ChangeDialogueText("");
     }
 
-    public void ChurchDoorFirstApproach() {
-        StartCoroutine(_ChurchDoorFirstApproach());
+    public void ChurchDoorApproach() {
+        StartCoroutine(_ChurchDoorApproach());
     }
 
-    private IEnumerator _ChurchDoorFirstApproach() {
-        ChangeDialogueText("Locked...");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("I'll have to find a key.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
-        PlayerObjectiveManager.Instance.ChangeObjectiveText("Find a key to unlock the church door.");
+    private IEnumerator _ChurchDoorApproach() {
+        if (!level1Manager.hasPlayerApproachedChurch && !level1Manager.hasPlayerPickedUpKey) {
+            level1Manager.hasPlayerApproachedChurch = true;
+            ChangeDialogueText("Locked...");
+            yield return new WaitForSeconds(textDisplayTime);
+            ChangeDialogueText("I'll have to find a key.");
+            yield return new WaitForSeconds(textDisplayTime);
+            ChangeDialogueText("");
+            PlayerObjectiveManager.Instance.ChangeObjectiveText("Find a key to unlock the church door.");
+        }
+        else if (level1Manager.hasPlayerPickedUpKey) {
+            GameManager.Instance.keysFound = 0;
+            level1Manager.hasPlayerPickedUpKey = false;
+            AudioManagerMaster.Instance.Play("enemy alert");
+            ChangeDialogueText("...?!");
+            yield return new WaitForSeconds(textDisplayTime);
+            ChangeDialogueText("Oh no... What was that...?");
+            yield return new WaitForSeconds(textDisplayTime);
+            ChangeDialogueText("");
+            PlayerObjectiveManager.Instance.ChangeObjectiveText("Survive.");
+        }
     }
 
     public void KeyFound() {
@@ -73,19 +89,5 @@ public class PlayerDialogueManager : MonoBehaviour
         yield return new WaitForSeconds(textDisplayTime);
         ChangeDialogueText("");
         PlayerObjectiveManager.Instance.ChangeObjectiveText("Unlock the church with the key you found.");
-    }
-
-    public void ChurchDoorUnlocked() {
-        StartCoroutine(_ChurchDoorUnlocked());
-    }
-
-    private IEnumerator _ChurchDoorUnlocked() {
-        AudioManagerMaster.Instance.Play("enemy alert");
-        ChangeDialogueText("...?!");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("Oh no... What was that...?");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
-        PlayerObjectiveManager.Instance.ChangeObjectiveText("Survive.");
     }
 }
