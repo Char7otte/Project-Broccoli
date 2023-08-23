@@ -8,6 +8,10 @@ public class Level1Manager : MonoBehaviour
     public bool hasPlayerPickedUpKey = false;
     private bool playerHealthDecreaseTriggered = false;
 
+    private void Start() {
+        PlayerDialogueManager.Instance.StartOfLevel1();
+    }
+
     private void Update() {
         if (!playerHealthDecreaseTriggered) {
             playerHealthDecreaseTriggered = true;
@@ -18,7 +22,7 @@ public class Level1Manager : MonoBehaviour
 
         if (GameManager.Instance.keysFound > 0 && !hasPlayerPickedUpKey) {
             hasPlayerPickedUpKey = true;
-            PlayerDialogueManager.Instance.KeyFound();
+            //PlayerDialogueManager.Instance.KeyFound();
         }
     }
 }

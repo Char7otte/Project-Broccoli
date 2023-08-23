@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -11,6 +12,7 @@ public class PlayerDialogueManager : MonoBehaviour
     [SerializeField]private int textDisplayTime = default;
     public Level1Manager level1Manager = default;
     public Level2Manager level2Manager = default;
+    [SerializeField]private TextMeshProUGUI objectiveText = default;
 
     private void Awake() {
         if (Instance != null && Instance != this) Destroy(this);
@@ -18,76 +20,51 @@ public class PlayerDialogueManager : MonoBehaviour
     }
 
     private void Start() {
-        StartCoroutine(StartOfLevel1());
+        //StartCoroutine(StartOfLevel1());
     }
 
-    private void SetTimeScale(float timeScaleValue) {
-        Time.timeScale = timeScaleValue;
+    private void StartDialogueCoroutine(string[] dialogue, string objective) {
+        StartCoroutine(RunDialogue(dialogue, objective));
     }
 
-    private void ChangeDialogueText(string dialougeTextString) {
-        dialogueText.SetText(dialougeTextString);
+    private IEnumerator RunDialogue(string[] dialogue, string objective) {
+        foreach (string dialogueItem in dialogue) {
+            dialogueText.SetText(dialogueItem);
+            yield return new WaitForSeconds(textDisplayTime);
+        }
+        dialogueText.SetText("");
+        if (!string.IsNullOrEmpty(objective)) objectiveText.SetText(objective);
     }
 
-    private IEnumerator StartOfLevel1() {
-        ChangeDialogueText("Ow... My head hurts...");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("Where am I? What happened?");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("That bell in the distance... I should check it out.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
+    public void StartOfLevel1() {
+        var dialogue = new string[] { "Ow... My head hurts...", "Where am I?", " That bell in the distance... I should check it out."};
+        var objective = "Head towards the church.";
+        StartDialogueCoroutine(dialogue, objective);
     }
 
-    public void GunApproach() {
-        StartCoroutine(_GunApproach());
+    public void ApproachSupplies() {
+        var dialogue = new string[] { "Supplies?", "Don't mind if I do...",};
+        StartDialogueCoroutine(dialogue, "");
     }
 
-    private IEnumerator _GunApproach() {
-        ChangeDialogueText("Supplies?");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("Don't mind if I do...");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
-    }
-
-    public void ChurchDoorApproach() {
-        StartCoroutine(_ChurchDoorApproach());
-    }
-
-    private IEnumerator _ChurchDoorApproach() {
+    public void ApproachChurch() {
         if (!level1Manager.hasPlayerApproachedChurch && !level1Manager.hasPlayerPickedUpKey) {
             level1Manager.hasPlayerApproachedChurch = true;
-            ChangeDialogueText("Locked...");
-            yield return new WaitForSeconds(textDisplayTime);
-            ChangeDialogueText("I'll have to find a key.");
-            yield return new WaitForSeconds(textDisplayTime);
-            ChangeDialogueText("");
-            PlayerObjectiveManager.Instance.ChangeObjectiveText("Find a key to unlock the church door.");
+            var dialogue = new string[] { "Locked...", "I'll have to find a key."};
+            var objective = "Find a key to unlock the church door.";
+            StartDialogueCoroutine(dialogue, objective);
         }
         else if (level1Manager.hasPlayerPickedUpKey) {
-            GameManager.Instance.keysFound = 0;
-            level1Manager.hasPlayerPickedUpKey = false;
-            AudioManagerMaster.Instance.Play("enemy alert");
-            ChangeDialogueText("...?!");
-            yield return new WaitForSeconds(textDisplayTime);
-            ChangeDialogueText("Oh no... What was that...?");
-            yield return new WaitForSeconds(textDisplayTime);
-            ChangeDialogueText("");
-            PlayerObjectiveManager.Instance.ChangeObjectiveText("Survive.");
+            var dialogue = new string[] { "......?!", "What was that?!"};
+            var objective = "Survive.";
+            StartDialogueCoroutine(dialogue, objective);
         }
     }
 
     public void KeyFound() {
-        StartCoroutine(_KeyFound());
-    }
-
-    private IEnumerator _KeyFound() {
-        ChangeDialogueText("There we go...");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("Should I explore some more? There might be more resources around.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
-        PlayerObjectiveManager.Instance.ChangeObjectiveText("Unlock the church with the key you found.");
+        level1Manager.hasPlayerPickedUpKey = true;
+        var dialogue = new string[] { "There we go.", "But maybe I should look around for more supplies first... "};
+        var objective = "Unlock the church with the key you found.";
+        StartDialogueCoroutine(dialogue, objective);
     }
 }

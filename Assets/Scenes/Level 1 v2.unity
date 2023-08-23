@@ -149,7 +149,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &16760846
 PrefabInstance:
@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9229fd7a4bd28448d09f7fb8f790b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  methodName: ChurchDoorApproach
+  methodName: ApproachChurch
 --- !u!1001 &35540645
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2770,7 +2770,7 @@ GameObject:
   - component: {fileID: 297920336}
   - component: {fileID: 297920337}
   m_Layer: 0
-  m_Name: GunTrigger
+  m_Name: Approach Supplies Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2815,7 +2815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9229fd7a4bd28448d09f7fb8f790b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  methodName: GunApproach
+  methodName: ApproachSupplies
 --- !u!1 &305550581
 GameObject:
   m_ObjectHideFlags: 0
@@ -4671,7 +4671,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &492597136
 PrefabInstance:
@@ -5868,7 +5868,7 @@ Transform:
   - {fileID: 63282348}
   - {fileID: 297920334}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574310397
 GameObject:
@@ -7553,7 +7553,7 @@ RectTransform:
   m_Children:
   - {fileID: 1028730228}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8620,7 +8620,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1028730227
 GameObject:
@@ -9253,7 +9253,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter the church.
+  m_text: '
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10399,7 +10401,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1173145938
 PrefabInstance:
@@ -15363,6 +15365,7 @@ MonoBehaviour:
   textDisplayTime: 3
   level1Manager: {fileID: 1563543111}
   level2Manager: {fileID: 0}
+  objectiveText: {fileID: 1090905846}
 --- !u!4 &1635739522
 Transform:
   m_ObjectHideFlags: 0
@@ -15375,7 +15378,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1635739523
 MonoBehaviour:
@@ -16297,7 +16300,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1726914143
 PrefabInstance:
@@ -17416,50 +17419,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1832608097}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1837324897
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1837324899}
-  - component: {fileID: 1837324898}
-  m_Layer: 0
-  m_Name: PlayerObjectiveManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1837324898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837324897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 199ef22807e959e4db7f0a782088c85e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectiveText: {fileID: 1090905846}
---- !u!4 &1837324899
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837324897}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 538.75, y: 86.838646, z: 0.0000000041927275}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 25
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1841276049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20352,7 +20311,7 @@ PrefabInstance:
     - target: {fileID: 3436317123555360856, guid: 239a04eb656fdc3418f4e540c824eecb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 32
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 3436317123555360856, guid: 239a04eb656fdc3418f4e540c824eecb,
         type: 3}

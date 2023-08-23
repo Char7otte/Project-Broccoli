@@ -32,10 +32,7 @@ public class GunSelector : MonoBehaviour
     }
 
     public void SwitchToWeaponSlot(int slotIndex) {
-        if (!weapons[slotIndex].GetComponent<GunComponent>().pickedUp) {
-            print(weapons[slotIndex].transform.name + " hasn't been picked up.");
-            return;
-            }
+        if (!weapons[slotIndex].GetComponent<GunComponent>().pickedUp) return;
         if (slotIndex < 0 || slotIndex >= weapons.Length) return;
 
         disableAllWeapons();
