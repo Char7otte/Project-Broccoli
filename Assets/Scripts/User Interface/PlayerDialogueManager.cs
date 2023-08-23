@@ -55,6 +55,7 @@ public class PlayerDialogueManager : MonoBehaviour
             StartDialogueCoroutine(dialogue, objective);
         }
         else if (level1Manager.hasPlayerPickedUpKey) {
+            level1Manager.ChurchUnlocked();
             var dialogue = new string[] { "......?!", "What was that?!"};
             var objective = "Survive.";
             StartDialogueCoroutine(dialogue, objective);
@@ -62,9 +63,15 @@ public class PlayerDialogueManager : MonoBehaviour
     }
 
     public void KeyFound() {
-        level1Manager.hasPlayerPickedUpKey = true;
-        var dialogue = new string[] { "There we go.", "But maybe I should look around for more supplies first... "};
-        var objective = "Unlock the church with the key you found.";
-        StartDialogueCoroutine(dialogue, objective);
+        if (!level1Manager.hasPlayerApproachedChurch) {
+            var dialogue = new string[] { "A key? I wonder what this is for..."};
+            StartDialogueCoroutine(dialogue, "");
+        }
+        else {
+            level1Manager.hasPlayerPickedUpKey = true;
+            var dialogue = new string[] { "There we go.", "But maybe I should look around for more supplies first... "};
+            var objective = "Unlock the church with the key you found.";
+            StartDialogueCoroutine(dialogue, objective);
+        }
     }
 }

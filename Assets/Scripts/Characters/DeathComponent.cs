@@ -7,6 +7,7 @@ public class DeathComponent : MonoBehaviour
     [HideInInspector]public bool isAlive = true;
 
     [SerializeField]private Behaviour[] componentsToDisable = default;
+    [SerializeField]private bool immediatelyDestroyObject = true;
 
     private HealthComponent healthComponent;
     private AudioManagerComponent audioManagerComponent;
@@ -29,8 +30,10 @@ public class DeathComponent : MonoBehaviour
         
         //animator.SetTrigger("dead");
         //Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length * 2);
-        Destroy(gameObject);
 
+        if (immediatelyDestroyObject) {
+            Destroy(gameObject);
+        }
         PlayAudio("died");
         DisableTheseComponentsUponDeath();
     }

@@ -22,6 +22,8 @@ public class HUDController : MonoBehaviour
     }
 
     private void Update() {
+        if (player == null) return;
+        
         var currentHealth = healthComponent.currentHealth;
         var maxHealth = healthComponent.maxHealth;
         healthbarImage.fillAmount = currentHealth / maxHealth;
