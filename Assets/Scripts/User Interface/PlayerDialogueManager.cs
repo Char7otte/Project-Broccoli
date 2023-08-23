@@ -15,17 +15,16 @@ public class PlayerDialogueManager : MonoBehaviour
         else Instance = this;
     }
 
-    private void ChangeDialogueText(string text) {
-        dialogueText.text = text;
+    private void Start() {
+        StartCoroutine(StartOfLevel1());
     }
 
+    private void SetTimeScale(float timeScaleValue) {
+        Time.timeScale = timeScaleValue;
+    }
 
-    /// <summary>
-    /// LEVEL 1 DIALOGUE
-    /// </summary>
-
-    public void _StartOfLevel1() {
-        StartCoroutine(StartOfLevel1());
+    private void ChangeDialogueText(string dialougeTextString) {
+        dialogueText.SetText(dialougeTextString);
     }
 
     private IEnumerator StartOfLevel1() {
@@ -88,49 +87,5 @@ public class PlayerDialogueManager : MonoBehaviour
         yield return new WaitForSeconds(textDisplayTime);
         ChangeDialogueText("");
         PlayerObjectiveManager.Instance.ChangeObjectiveText("Survive.");
-    }
-
-
-
-    /// <summary>
-    /// LEVEL 2
-    /// </summary>
-
-    public void _StartOfLevel2() {
-        StartCoroutine(StartOfLevel2());
-    }
-
-    private IEnumerator StartOfLevel2() {
-        AudioManagerMaster.Instance.Play("door shut");
-        ChangeDialogueText("Phew... That's one problem solved for now.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("Though another problem's taken its place, I suppose.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("...These are all doors.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("That one in the middle has a number lock... It must be important.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
-        PlayerObjectiveManager.Instance.ChangeObjectiveText("Look for a way out.");
-    }
-
-    public void _ApproachFirstNumber() {
-        StartCoroutine(ApproachFirstNumber());
-    }
-
-    private IEnumerator ApproachFirstNumber() {
-        ChangeDialogueText("Why is there a number on the wall...? Strange...");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
-    }
-
-    public void _ApproachSecondNumber() {
-        StartCoroutine(ApproachSecondNumber());
-    }
-
-    private IEnumerator ApproachSecondNumber() {
-        ChangeDialogueText("Another one... Curious.");
-        yield return new WaitForSeconds(textDisplayTime);
-        ChangeDialogueText("");
     }
 }

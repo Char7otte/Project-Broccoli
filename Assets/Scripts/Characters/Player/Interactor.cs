@@ -25,6 +25,7 @@ public class Interactor : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) {
             var ray = new Ray(cameraPosition.position, cameraPosition.forward);
             if (Physics.Raycast(ray, out var hit, interactRange , interactableLayer)) {
+
                 switch(hit.collider.gameObject.tag) {
                     case "Syringe":
                         healthComponent.Heal(syringeHealAmount);
@@ -58,13 +59,9 @@ public class Interactor : MonoBehaviour
 
     private void WeaponPickUp(int slotIndex) {
         var gunSelector = GunSelector.Instance;
-        var gunComponent = gunSelector.weapons[slotIndex].GetComponent<GunComponent>();
-
-        if (gunComponent.pickedUp) gunComponent.totalAmmo += gunComponent.maxMagazineSize;
-        else {
-            gunSelector.weapons[slotIndex].GetComponent<GunComponent>().pickedUp = true;
-            gunSelector.SwitchToWeaponSlot(slotIndex);
-        }
+        print(gunSelector.weapons[slotIndex].transform.name + " picked up.");
+        gunSelector.weapons[slotIndex].GetComponent<GunComponent>().pickedUp = true;
+        gunSelector.SwitchToWeaponSlot(slotIndex);
     }
 }
 
