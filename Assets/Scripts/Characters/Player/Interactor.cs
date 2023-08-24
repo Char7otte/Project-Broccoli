@@ -15,6 +15,8 @@ public class Interactor : MonoBehaviour
 
     private AudioManagerComponent audioManagerComponent;
 
+    [SerializeField]private GameObject inputField = default;
+
     private void Start() {
         healthComponent = GetComponent<HealthComponent>();
         interactableLayer = LayerMask.GetMask("Interactable");
@@ -30,28 +32,35 @@ public class Interactor : MonoBehaviour
                     case "Syringe":
                         healthComponent.Heal(syringeHealAmount);
                         audioManagerComponent.Play("heal");
+                        Destroy(hit.transform.gameObject);
                         break;
                     case "Ammo":
                         var gunComponent = GunSelector.currentWeapon.GetComponent<GunComponent>();
                         gunComponent.addAmmo(gunComponent.maxMagazineSize);
                         audioManagerComponent.Play("ammo");
+                        Destroy(hit.transform.gameObject);
                         break;
                     case "Shotgun":
                         WeaponPickUp(1);
                         audioManagerComponent.Play("shotgun reload");
+                        Destroy(hit.transform.gameObject);
                         break;
                     case "Pistol":
                         WeaponPickUp(0);
                         audioManagerComponent.Play("pistol reload");
+                        Destroy(hit.transform.gameObject);
                         break;
                     case "Key":
                         audioManagerComponent.Play("keys");
                         GameManager.Instance.keysFound += 1;
+                        Destroy(hit.transform.gameObject);
+                        break;
+                    case "Code Trigger":
+                        inputField.SetActive(true);
                         break;
                     default:
                         break;
                 }
-                Destroy(hit.transform.gameObject);
             }
         }
     }

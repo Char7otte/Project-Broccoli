@@ -159,6 +159,7 @@ public class GameManager : MonoBehaviour {
     private DeathComponent playerDeathComponent;
     private MouseLook playerMouseLook;
     public bool playerHasDied = false;
+    public bool playerCanShoot = true;
 
     private void Awake() {
         if (Instance != null && Instance != this) Destroy(this);
