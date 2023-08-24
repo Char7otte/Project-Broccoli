@@ -12,7 +12,6 @@ public class Level1Manager : MonoBehaviour
     public bool churchIsUnlocked = true;
 
     [SerializeField]private GameObject churchDoor = default;
-    [SerializeField]private GameObject player = default;
     private bool triggered = default;
 
     private void Start() {
@@ -37,7 +36,7 @@ public class Level1Manager : MonoBehaviour
 
         if (GameManager.Instance.playerHasDied && !triggered) {
             Cursor.visible = true;
-		    Screen.lockCursor = false;
+		    Cursor.lockState = CursorLockMode.Confined;
         }
     }
 

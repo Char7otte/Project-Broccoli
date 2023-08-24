@@ -12,7 +12,7 @@ public class LOSenemyController : MonoBehaviour
     private bool playerDetected = false;
 
     private void Start () {
-        player = GameObject.Find("PlayerCharacter").transform;
+        player = GameObject.Find("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.speed = movementSpeed;
     }
