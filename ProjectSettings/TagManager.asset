@@ -13,6 +13,7 @@ TagManager:
   - Door
   - Enemy Spawner
   - Pistol
+  - Code Trigger
   layers:
   - Default
   - TransparentFX
