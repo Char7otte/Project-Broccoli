@@ -12,6 +12,8 @@ Heal: https://www.fesliyanstudios.com/play-mp3/1165
 Ammo pickup: https://pixabay.com/sound-effects/loading-bullets-into-sauer-404-mag-29283/
 Pistol reload: https://pixabay.com/sound-effects/1911-reload-6248/
 Shotgun reload: https://pixabay.com/sound-effects/rifle-or-shotgun-reload-6787/
+boss fight: https://youtu.be/KkSfEQcZHy8?si=DAPwHpMuMrNO18Ls
+player hurt: https://pixabay.com/sound-effects/ough-47202/
 
 Textures:
 https://www.freepik.com/free-photo/green-fake-grass-background_2791853.htm#query=grass%20texture&position=3&from_view=keyword&track=ais

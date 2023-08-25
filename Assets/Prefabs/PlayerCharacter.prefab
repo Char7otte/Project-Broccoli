@@ -29562,13 +29562,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3277141947475745410}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3436317123555360856}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &3256288822008649056
 Camera:
   m_ObjectHideFlags: 0
@@ -29906,6 +29906,7 @@ MonoBehaviour:
   cameraPosition: {fileID: 3272073025025316534}
   interactRange: 200
   syringeHealAmount: 30
+  inputField: {fileID: 0}
 --- !u!114 &3438522820541979483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29951,6 +29952,13 @@ MonoBehaviour:
     audioSource: {fileID: 0}
     clipName: shotgun reload
     audioClip: {fileID: 8300000, guid: a2fc30cda0462e44e9003f97a0814abd, type: 3}
+    playOnAwake: 0
+    isLooping: 0
+    volume: 0.5
+  - audioType: 1
+    audioSource: {fileID: 0}
+    clipName: hurt
+    audioClip: {fileID: 8300000, guid: 2d0caf0db99832b4f95a8d3795d65670, type: 3}
     playOnAwake: 0
     isLooping: 0
     volume: 0.5

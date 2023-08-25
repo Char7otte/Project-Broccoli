@@ -49,12 +49,14 @@ public class PlayerDialogueManager : MonoBehaviour
 
     public void ApproachChurch() {
         if (!level1Manager.hasPlayerApproachedChurch && !level1Manager.hasPlayerPickedUpKey) {
+            AudioManagerMaster.Instance.Play("locked");
             level1Manager.hasPlayerApproachedChurch = true;
             var dialogue = new string[] { "Locked...", "I'll have to find a key."};
             var objective = "Find a key to unlock the church door.";
             StartDialogueCoroutine(dialogue, objective);
         }
         else if (level1Manager.hasPlayerPickedUpKey) {
+            AudioManagerMaster.Instance.Play("unlock");
             level1Manager.ChurchUnlocked();
         }
     }
@@ -70,5 +72,17 @@ public class PlayerDialogueManager : MonoBehaviour
             var objective = "Unlock the church with the key you found.";
             StartDialogueCoroutine(dialogue, objective);
         }
+    }
+
+    public void StartOfLevel2() {
+        var dialogue = new string[] { "...Huh?", "I thought I died...", "......", "That door there needs a code...", "I guess I should look around for this code."};
+        var objective = "Find the code to unlock the door.";
+        StartDialogueCoroutine(dialogue, objective);
+    }
+
+    public void BossFight() {
+        var objective = "Defeat the boss.";
+        objectiveText.SetText(objective);
+        AudioManagerMaster.Instance.Play("boss fight");
     }
 }

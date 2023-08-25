@@ -11,6 +11,7 @@ public class ActivateDoor : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             door.SetActive(true);
             level2Manager.StartBossFight();
+            PlayerDialogueManager.Instance.BossFight();
         }
     }
 }
