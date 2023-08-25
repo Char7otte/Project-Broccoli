@@ -58,6 +58,10 @@ public class Interactor : MonoBehaviour
                     case "Code Trigger":
                         inputField.SetActive(true);
                         break;
+                    case "KeyDoor":
+                        audioManagerComponent.Play("keys");
+                        Destroy(hit.transform.gameObject);
+                        break;
                     default:
                         break;
                 }

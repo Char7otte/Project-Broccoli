@@ -1,0 +1,404 @@
+fileFormatVersion: 2
+guid: eaa5a4457fa3f244b81f8182d32d21c9
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: -2423577600519237459
+    second: Zombie Enemy Walk Animation
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Zombie Enemy Walk Animation' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'R_Shoulder_J' has translation
+      animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Zombie Enemy Walk Animation
+      takeName: Zombie Enemy Walk Animation
+      internalID: 0
+      firstFrame: 1
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0.96
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: COG_J
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L_Hip_J
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R_Hip_J
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L_Knee_J
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R_Knee_J
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L_Feet_J
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R_Feet_J
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Stomach_J
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Chest_J
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head_Low_J
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L_Shoulder_J
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R_Shoulder_J
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L_Elbow_J
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R_elbow_J
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L_Wrist_J
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: R_Wrist_J
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head_High_J
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Zombie Enemy Walk Animation 1(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Camera
+      parentName: Zombie Enemy Walk Animation 1(Clone)
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062851, y: 0.89379627, z: -0.20997299, w: 0.3857799}
+      scale: {x: 100, y: 100.00001, z: 99.99999}
+    - name: zombie_enemy
+      parentName: Zombie Enemy Walk Animation 1(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle1
+      parentName: Zombie Enemy Walk Animation 1(Clone)
+      position: {x: -0.002945897, y: 0.0016733048, z: -0.0070792683}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ikHandle2
+      parentName: Zombie Enemy Walk Animation 1(Clone)
+      position: {x: 0.0029473372, y: 0.0017325963, z: 0.0076255}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: back
+      parentName: Zombie Enemy Walk Animation 1(Clone)
+      position: {x: -0.00079273817, y: 0.019592082, z: -10.000999}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: L_Foot_ctrl
+      parentName: Zombie Enemy Walk Animation 1(Clone)
+      position: {x: -0.0029458967, y: 0.0016733049, z: -0.0070792683}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: R_Foot_ctrl
+      parentName: Zombie Enemy Walk Animation 1(Clone)
+      position: {x: 0.002947337, y: 0.0017325961, z: 0.0076255}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Body_ctrl
+      parentName: Zombie Enemy Walk Animation 1(Clone)
+      position: {x: -0.000023079563, y: 0.019176908, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: left
+      parentName: Zombie Enemy Walk Animation 1(Clone)
+      position: {x: 10.000999, y: 0.0031350027, z: 0.000273436}
+      rotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: COG_J
+      parentName: Zombie Enemy Walk Animation 1(Clone)
+      position: {x: -0.000023079563, y: 0.01917691, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Stomach_J
+      parentName: COG_J
+      position: {x: 0.000018360533, y: 0.0013559271, z: -0.00056469196}
+      rotation: {x: -1.06871735e-17, y: 0.000000002910383, z: 0.0000000026489033,
+        w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Chest_J
+      parentName: Stomach_J
+      position: {x: -0, y: 0.006579034, z: -0.00023183228}
+      rotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: L_Shoulder_J
+      parentName: Chest_J
+      position: {x: 0.0040311287, y: 0.0007965243, z: -0.005983915}
+      rotation: {x: -0.4975936, y: -0.49579355, z: -0.50273806, w: 0.50382924}
+      scale: {x: 1.0000001, y: 0.9999999, z: 1}
+    - name: L_Elbow_J
+      parentName: L_Shoulder_J
+      position: {x: -0.00908481, y: -4.163336e-18, z: 0}
+      rotation: {x: 0.000000029802319, y: 0.000000029802319, z: -0.03459772, w: 0.99940133}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+    - name: L_Wrist_J
+      parentName: L_Elbow_J
+      position: {x: -0.007838811, y: 2.2898349e-18, z: 0}
+      rotation: {x: -0.000000058974248, y: -0.0000000026065445, z: -0.01912832, w: 0.999817}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: Head_Low_J
+      parentName: Chest_J
+      position: {x: 0.005614568, y: 0.00025977692, z: 0}
+      rotation: {x: 0.000000029802322, y: 0.000000029802322, z: -0.0408175, w: 0.99916667}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000001}
+    - name: Head_High_J
+      parentName: Head_Low_J
+      position: {x: 0.0070067095, y: 0.0011119696, z: 0}
+      rotation: {x: -0.000000058304487, y: -0.00000006085501, z: 0.038845997, w: 0.99924517}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
+    - name: R_Shoulder_J
+      parentName: Chest_J
+      position: {x: 0.005901603, y: 0.000006634393, z: 0.008160295}
+      rotation: {x: 0.4724242, y: -0.52613246, z: 0.52613246, w: 0.4724242}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1}
+    - name: R_elbow_J
+      parentName: R_Shoulder_J
+      position: {x: 0.009084767, y: 0.000000055280882, z: -4.5369375e-24}
+      rotation: {x: -0, y: -0, z: -0.034597754, w: 0.99940133}
+      scale: {x: 1, y: 1.0000002, z: 1.0000002}
+    - name: R_Wrist_J
+      parentName: R_elbow_J
+      position: {x: 0.007838835, y: -0.00000003155584, z: -2.4651903e-34}
+      rotation: {x: -0, y: -0, z: -0.019128285, w: 0.999817}
+      scale: {x: 1, y: 0.9999999, z: 0.9999997}
+    - name: L_Hip_J
+      parentName: COG_J
+      position: {x: -0.002928156, y: -0.0018217497, z: 0.00014113088}
+      rotation: {x: 0.47193748, y: 0.526569, z: 0.4719376, w: 0.5265692}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: L_Knee_J
+      parentName: L_Hip_J
+      position: {x: -0.0073009133, y: 0.000026280568, z: -4.3765625e-21}
+      rotation: {x: -0.9906616, y: -0.13634369, z: -0, w: 0.00000011920929}
+      scale: {x: 0.9999998, y: 0.99999964, z: 0.9999998}
+    - name: L_Feet_J
+      parentName: L_Knee_J
+      position: {x: -0.010074159, y: -0.00054863124, z: -9.227343e-12}
+      rotation: {x: 0.45730603, y: 0.5393247, z: -0.4573061, w: 0.5393248}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000001}
+    - name: R_Hip_J
+      parentName: COG_J
+      position: {x: 0.0029648803, y: -0.0018217394, z: 0.000141131}
+      rotation: {x: 0.52656907, y: -0.4719375, z: 0.52656907, w: -0.4719375}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: R_Knee_J
+      parentName: R_Hip_J
+      position: {x: 0.007300948, y: -0.00002627672, z: -1.6653345e-18}
+      rotation: {x: 0.9906616, y: 0.13634366, z: 0.000000014901161, w: 0.000000014901161}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
+    - name: R_Feet_J
+      parentName: R_Knee_J
+      position: {x: 0.010074136, y: 0.0005486279, z: 2.0025055e-11}
+      rotation: {x: -0.45730612, y: -0.53932476, z: 0.45730606, w: -0.53932476}
+      scale: {x: 0.9999998, y: 1, z: 1.0000001}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

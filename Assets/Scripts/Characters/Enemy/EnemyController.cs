@@ -19,11 +19,17 @@ public class EnemyController : MonoBehaviour
 
     private void Update() {
         transform.LookAt(player);
+
+        if (player == null) return;
+        if (!playerDetected) return;
+
+        GetComponent<Animator>().enabled = true;
     }
 	
 	private void FixedUpdate () {
         if (player == null) return;
         if (!playerDetected) return;
+        if (navMeshAgent.enabled == false) return;
 
         navMeshAgent.SetDestination(player.position);
     }

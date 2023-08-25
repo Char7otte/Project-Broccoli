@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputFieldScript : MonoBehaviour
 {
     [SerializeField]private CodeGenerator codeGenerator = default;
+    [SerializeField]private GameObject bossRoomDoor = default;
 
     private void OnEnable() {
         GameManager.Instance.playerCanShoot = false;
@@ -32,6 +33,7 @@ public class InputFieldScript : MonoBehaviour
         var code = codeGenerator.code;
         if (stringInput == code.ToString()) {
             print("Code is correct.");
+            bossRoomDoor.SetActive(false);
         }
         else {
             print("Code is incorrect.");

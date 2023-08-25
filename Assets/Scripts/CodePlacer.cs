@@ -15,15 +15,13 @@ public class CodePlacer : MonoBehaviour
             codeSpawnPoint.GetComponent<TextMeshProUGUI>().text = "";
         }
 
+        Invoke("method", 1);
+    }
+
+    private void method() {
         PlaceCode(codeGenerator.firstNumber);
         PlaceCode(codeGenerator.secondNumber);
         PlaceCode(codeGenerator.thirdNumber);
-
-
-        // var firstNumber = codeGenerator.firstNumber;
-        // var randomElement = Random.Range(0, codeSpawnPoints.Length);
-        // codeSpawnPoints[randomElement].GetComponent<TextMeshProUGUI>().SetText(firstNumber);
-        // codeSpawnPoints = RemoveElementFromArray(codeSpawnPoints[randomElement]);
     }
 
     private void PlaceCode(string codeNumber) {

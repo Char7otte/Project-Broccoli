@@ -23,11 +23,9 @@ public class HUDController : MonoBehaviour
 
     private void Update() {
         if (player == null) return;
-        
-        var currentHealth = healthComponent.currentHealth;
-        var maxHealth = healthComponent.maxHealth;
-        healthbarImage.fillAmount = currentHealth / maxHealth;
-        healthText.SetText("Health: " + currentHealth);
+    
+        healthbarImage.fillAmount = healthComponent.currentHealth / healthComponent.maxHealth;
+        healthText.SetText("Health: " + healthComponent.currentHealth);
 
         var gunComponent = GunSelector.currentWeapon.GetComponent<GunComponent>();  //Must be constantly updated as the player can change weapon.
         var currentAmmo = gunComponent.remainingBulletsInMagazine;

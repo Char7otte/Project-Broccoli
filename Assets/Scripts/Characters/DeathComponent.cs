@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class DeathComponent : MonoBehaviour
 {
-    [HideInInspector]public bool isAlive = true;
+    public bool isAlive = true;
 
     [SerializeField]private Behaviour[] componentsToDisable = default;
-    [SerializeField]private bool immediatelyDestroyObject = true;
-
     private HealthComponent healthComponent;
     private AudioManagerComponent audioManagerComponent;
-    //private Animator animator;
+    private Animator animator;
 
     private void Start() {
         healthComponent = GetComponent<HealthComponent>();
         audioManagerComponent = GetComponent<AudioManagerComponent>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update() {
@@ -28,12 +26,8 @@ public class DeathComponent : MonoBehaviour
     private void Died() {
         isAlive = false;
         
-        //animator.SetTrigger("dead");
-        //Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length * 2);
-
-        if (immediatelyDestroyObject) {
-            Destroy(gameObject);
-        }
+        animator.SetTrigger("Dead");
+        Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length);
         PlayAudio("died");
         DisableTheseComponentsUponDeath();
     }
