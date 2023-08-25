@@ -34,6 +34,13 @@ public class Hurtbox : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Enemy") {
+            var damageValue = other.gameObject.GetComponent<DamageValue>();
+            EnemyCollision(damageValue);
+        }
+    }
+
     private void EnemyCollision(DamageValue enemyDamageValue) {
         enemyInvincibilityFramesTimer = enemyInvincibilityFramesDuration;
 

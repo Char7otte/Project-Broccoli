@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Level2Manager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]private GameObject bossHealthBar = default;
+    [SerializeField]private GameObject bossEnemy = default;
+    public bool bossFightHasStarted = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void StartBossFight() {
+        bossFightHasStarted = true;
+        bossHealthBar.SetActive(true);
+        bossEnemy.GetComponent<BossEnemyControll>().enabled = true;
+        bossEnemy.GetComponent<BossShoot>().enabled = true;
     }
 }
