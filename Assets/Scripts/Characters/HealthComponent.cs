@@ -15,6 +15,8 @@ public class HealthComponent : MonoBehaviour
         currentHealth -= damageAmount;
         currentHealth = Mathf.Max(currentHealth, 0.0f);
 
+        PlayHurt();
+
         if (GetComponent<Animator>() == null) return;
         GetComponent<Animator>().enabled = true;
     }
@@ -22,5 +24,12 @@ public class HealthComponent : MonoBehaviour
     public void Heal(float healAmount) {
         currentHealth += healAmount;
         currentHealth = Mathf.Min(currentHealth, maxHealth);
+    }
+
+    private void PlayHurt() {
+        var audioComponent = GetComponent<AudioManagerComponent>();
+        if (audioComponent == null) return;
+
+        audioComponent.Play("hurt");
     }
 }

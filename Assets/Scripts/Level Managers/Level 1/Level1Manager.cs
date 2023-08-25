@@ -40,7 +40,7 @@ public class Level1Manager : MonoBehaviour
             PlayerDialogueManager.Instance.KeyFound();
         }
 
-        if (player.GetComponent<HealthComponent>().currentHealth <= 0) {
+        if (player.GetComponent<HealthComponent>().currentHealth <= 0 && !churchIsUnlocked) {
             Time.timeScale = 0;
             Cursor.visible = true;
 		    Cursor.lockState = CursorLockMode.Confined;

@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 6877357694221634292}
   - component: {fileID: 6877357694221634293}
   - component: {fileID: 6877357694221634294}
+  - component: {fileID: 2610009735144035348}
   m_Layer: 10
   m_Name: boss zombie
   m_TagString: Enemy
@@ -177,6 +178,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToShoot: 7
   projectilePrefab: {fileID: 0}
+--- !u!95 &2610009735144035348
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944772700338052805}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3537092766584774998
 GameObject:
   m_ObjectHideFlags: 0

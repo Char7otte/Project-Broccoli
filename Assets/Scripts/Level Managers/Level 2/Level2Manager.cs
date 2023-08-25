@@ -20,6 +20,7 @@ public class Level2Manager : MonoBehaviour
     private void Start() {
         player = GameObject.Find("Player");
         Time.timeScale = 1;
+        PlayerDialogueManager.Instance.StartOfLevel2();
     }
 
     private void Update() {
@@ -53,10 +54,13 @@ public class Level2Manager : MonoBehaviour
     }
 
     private void GameWin() {
+        AudioManagerMaster.Instance.Stop("boss fight");
         winScreen.SetActive(true);
+        Destroy(player);
     }
 
     private void GameLose() {
         loseScreen.SetActive(true);
+        Destroy(player);
     }
 }

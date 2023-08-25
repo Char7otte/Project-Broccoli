@@ -17,5 +17,8 @@ public class Level1Ending : MonoBehaviour
         if (deathComponent.isAlive) return;
 
         level1EndScreen.SetActive(true);
+        Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.Confined;
+        Destroy(this.gameObject);
     }
 }
