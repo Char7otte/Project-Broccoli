@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeathComponent : MonoBehaviour
 {
-    [HideInInspector]public bool isAlive = true;
+    public bool isAlive = true;
 
     [SerializeField]private Behaviour[] componentsToDisable = default;
     [SerializeField]private bool immediatelyDestroyObject = true;

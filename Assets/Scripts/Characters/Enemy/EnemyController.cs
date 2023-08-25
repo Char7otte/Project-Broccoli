@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour
         if (!playerDetected) return;
 
         navMeshAgent.SetDestination(player.position);
+        GetComponent<Animator>().enabled = true;
     }
 
     private void OnTriggerEnter(Collider other) {

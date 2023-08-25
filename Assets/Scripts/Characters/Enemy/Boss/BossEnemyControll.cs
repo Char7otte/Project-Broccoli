@@ -18,10 +18,6 @@ public class BossEnemyControll : MonoBehaviour
         navMeshAgent.speed = movementSpeed;
     }
 
-    private void Update() {
-        transform.LookAt(player);
-    }
-
     private void FixedUpdate() {
         navMeshAgent.SetDestination(player.position);
     }

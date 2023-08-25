@@ -8,6 +8,7 @@ public class ArenaFireControl : MonoBehaviour
 
     private void Start() {
         Invoke("EnableDamagingFire", 3);
+        Destroy(this.gameObject, 10);
     }
 
     private void EnableDamagingFire() {

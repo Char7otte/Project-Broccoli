@@ -18,6 +18,8 @@ public class BossArenaFire : MonoBehaviour
 
     private void SpawnFire() {
         var playerPosition = GameObject.Find("Player").transform.position;
+        if (playerPosition == null) return;
+        
         Instantiate(projectilePrefab, playerPosition, Quaternion.identity);
         shootTimer = 0;
     }

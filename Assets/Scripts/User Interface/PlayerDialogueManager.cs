@@ -56,9 +56,6 @@ public class PlayerDialogueManager : MonoBehaviour
         }
         else if (level1Manager.hasPlayerPickedUpKey) {
             level1Manager.ChurchUnlocked();
-            var dialogue = new string[] { "......?!", "What was that?!"};
-            var objective = "Survive.";
-            StartDialogueCoroutine(dialogue, objective);
         }
     }
 

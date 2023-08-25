@@ -35,7 +35,7 @@ public class Hurtbox : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Enemy") {
+        if (other.gameObject.tag == "Fire") {
             var damageValue = other.gameObject.GetComponent<DamageValue>();
             EnemyCollision(damageValue);
         }

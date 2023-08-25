@@ -110,7 +110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4820409727395000096
 Transform:
   m_ObjectHideFlags: 0
@@ -192,6 +192,8 @@ GameObject:
   - component: {fileID: 4820409728771583637}
   - component: {fileID: 4820409728771583660}
   - component: {fileID: 4282179447610778860}
+  - component: {fileID: 5164297164076507341}
+  - component: {fileID: 6086192741091638642}
   m_Layer: 10
   m_Name: BasicEnemy
   m_TagString: Enemy
@@ -211,6 +213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4820409727395000096}
+  - {fileID: 6084520916796181213}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -229,7 +232,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4820409728771583642}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -337,6 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAlive: 1
   componentsToDisable: []
+  immediatelyDestroyObject: 1
 --- !u!136 &4820409728771583637
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -380,3 +384,135 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 30
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &5164297164076507341
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4820409728771583642}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: eaa5a4457fa3f244b81f8182d32d21c9, type: 3}
+  m_Controller: {fileID: 9100000, guid: 599912d9140e3734e9e0afec47427099, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
+    are already bound by a Humanoid avatar. These transforms can only be changed
+    by Humanoid clips.\n\tTransform 'R_Shoulder_J'\n\tTransform 'COG_J'\n\tTransform
+    'L_Shoulder_J'\n\tTransform 'R_Hip_J'\n\tTransform 'R_Shoulder_J'\n\tTransform
+    'L_Hip_J'\n\tTransform 'Head_Low_J'\n\tTransform 'R_Knee_J'\n\tTransform 'Chest_J'\n\tTransform
+    'COG_J'\n\tand more ...\n\tFrom animation clip 'Zombie Enemy Attack Animation'\n\tFrom
+    animation clip 'Zombie Enemy Death Animation'"
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6086192741091638642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4820409728771583642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a604fa828617fb499435f772aacda6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &6051209471406861622
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4820409728771583632}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 49.055717
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 49.055717
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 49.055717
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_Name
+      value: Zombie Idle fbx
+      objectReference: {fileID: 0}
+    - target: {fileID: 3563632996923322658, guid: 129665af724ec484f84cf547c25247bd,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cd65ce52012003745807622bac96fb90, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 129665af724ec484f84cf547c25247bd, type: 3}
+--- !u!4 &6084520916796181213 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 129665af724ec484f84cf547c25247bd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6051209471406861622}
+  m_PrefabAsset: {fileID: 0}

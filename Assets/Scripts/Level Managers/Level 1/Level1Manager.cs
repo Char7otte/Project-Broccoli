@@ -22,6 +22,7 @@ public class Level1Manager : MonoBehaviour
     }
 
     private void Update() {
+        GameObject.Find("Player").GetComponent<CharacterController>().enabled = true;
         if (!playerHealthDecreaseTriggered) {
             playerHealthDecreaseTriggered = true;
             var player = GameObject.FindGameObjectWithTag("Player");
@@ -34,10 +35,10 @@ public class Level1Manager : MonoBehaviour
             PlayerDialogueManager.Instance.KeyFound();
         }
 
-        if (GameManager.Instance.playerHasDied && !triggered) {
-            Cursor.visible = true;
-		    Cursor.lockState = CursorLockMode.Confined;
-        }
+        // if (GameManager.Instance.playerHasDied && !triggered) {
+        //     Cursor.visible = true;
+		//     Cursor.lockState = CursorLockMode.Confined;
+        // }
     }
 
     public void ChurchUnlocked() {
