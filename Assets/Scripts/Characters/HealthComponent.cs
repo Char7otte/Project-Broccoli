@@ -14,6 +14,9 @@ public class HealthComponent : MonoBehaviour
     public void DealDamage(float damageAmount) {
         currentHealth -= damageAmount;
         currentHealth = Mathf.Max(currentHealth, 0.0f);
+
+        if (GetComponent<Animator>() == null) return;
+        GetComponent<Animator>().enabled = true;
     }
 
     public void Heal(float healAmount) {

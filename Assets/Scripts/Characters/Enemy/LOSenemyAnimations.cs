@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAnimations : MonoBehaviour
+public class LOSenemyAnimations : MonoBehaviour
 {
     // private Animator animator;
 
@@ -16,18 +16,18 @@ public class EnemyAnimations : MonoBehaviour
     //     }
     // }
 
-    private EnemyController enemyController;
+    private LOSenemyController LOSenemycontroller;
     private Animator animator;
 
     private bool attacking = false;
 
     void Start() {
-        enemyController = GetComponent<EnemyController>();
+        LOSenemycontroller = GetComponent<LOSenemyController>();
         animator = GetComponent<Animator>();
     }
 
     private void Update() {
-        enemyController.enabled = !attacking;
+        LOSenemycontroller.enabled = !attacking;
     }
 
     private void OnCollisionStay(Collision collision) {

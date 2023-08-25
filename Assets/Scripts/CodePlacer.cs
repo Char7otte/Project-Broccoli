@@ -15,6 +15,10 @@ public class CodePlacer : MonoBehaviour
             codeSpawnPoint.GetComponent<TextMeshProUGUI>().text = "";
         }
 
+        Invoke("method", 1);
+    }
+
+    private void method() {
         PlaceCode(codeGenerator.firstNumber);
         PlaceCode(codeGenerator.secondNumber);
         PlaceCode(codeGenerator.thirdNumber);
